@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: helm-java
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    name: helm-java
+    namespace: default
+spec:
+  rules:
+    - http:
+        paths:
+          - backend:
+              serviceName: helm-java
+              servicePort: 9090
+            path: /

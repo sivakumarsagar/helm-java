@@ -1,0 +1,16 @@
+apiVersion: skaffold/v1
+kind: Config
+metadata:
+  name: helm
+build:
+  artifacts:
+  - image: sivakumarsagar/helm-java
+#    buildpacks:
+#      builder: gcr.io/buildpacks/builder:v1
+deploy:
+  helm:
+    releases:
+    - name: helm-java
+      chartPath: helm-java
+      values:
+        image: sivakumarsagar/helm-java
